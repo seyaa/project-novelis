@@ -93,16 +93,16 @@ public class ModuleAjoutDechetV2 extends JPanel implements ActionListener , Item
 		listeSaisieDechet 	= new ArrayList<LigneSaisieDechet>();
 		
 		boutonValider 		= new JButton("Valider");
-		boutonAddLigne 		= new JButton("+");
+		
 		
 		panelAjout.setLayout( new GridLayout(1,2));
 		
 		// TITRE PANEL 
-		panelGaucheHaut.setBorder(BorderFactory.createTitledBorder("1 - Choix de la catégorie à ajouter"));
+		panelGaucheHaut.setBorder(BorderFactory.createTitledBorder	("1 - Choix de la catégorie à ajouter"));
 		panelGaucheCentre.setBorder(BorderFactory.createTitledBorder("2 - Choix du type à ajouter"));
-		panelGaucheBas.setBorder(BorderFactory.createTitledBorder("Renseignement sur l'ajout"));
-		panelDroit.setBorder(BorderFactory.createTitledBorder("3 - Ajout du poids et quantité "));
-		panelGaucheBas2.setBorder(BorderFactory.createTitledBorder("Validation"));
+		panelGaucheBas.setBorder(BorderFactory.createTitledBorder	("Renseignement sur l'ajout"));
+		panelDroit.setBorder(BorderFactory.createTitledBorder		("3 - Ajout du poids et quantité "));
+		panelGaucheBas2.setBorder(BorderFactory.createTitledBorder	("Validation"));
 		
 		// PARTIE GAUCHE	
 		panelGauche.setLayout( new GridLayout(4,1));
@@ -129,21 +129,27 @@ public class ModuleAjoutDechetV2 extends JPanel implements ActionListener , Item
 		
 		// PARTIE DROITE
 		
-		LigneSaisieDechet ligne = new LigneSaisieDechet(listeSaisieDechet);
-		listeSaisieDechet.add( ligne );
+		
+		
 
 		panelDroit.setLayout		( new BorderLayout()	);
 		panelDroitCentre.setLayout 	( new GridLayout(5, 1)	);
 		panelDroitHaut.setLayout 	( new BorderLayout()	);
 	    
-		panelDroitHaut.add( boutonAddLigne , "West");
-		panelDroitHaut.add( labelPoidsQte  , "Center");
+		for ( int i = 0 ; i < 5 ; i++ ) 
+		{
+			LigneSaisieDechet ligne = new LigneSaisieDechet(listeSaisieDechet);
+			listeSaisieDechet.add( ligne );
+			panelDroitCentre.add( ligne );
+		}
+	
+		panelDroitHaut.add( labelPoidsQte  , "North");
 		
-		panelDroitCentre.add( ligne );
+		
+	
 				
 		boutonValider.addActionListener(this);
-		boutonAddLigne.addActionListener(this);
-		
+
 		selectionType.addActionListener(this);
 		selectionAlliage.addActionListener(this);
 		
@@ -176,8 +182,7 @@ public class ModuleAjoutDechetV2 extends JPanel implements ActionListener , Item
 		
 		for ( int i = 0 ; i < listeSaisieDechet.size() ; i++ )
 		{
-			if ( ! listeSaisieDechet.get(i).estSupprime)
-				resultat += listeSaisieDechet.get(i).getResultat();
+			resultat += listeSaisieDechet.get(i).getResultat();
 		}
 		return resultat;
 	}
@@ -217,26 +222,8 @@ public class ModuleAjoutDechetV2 extends JPanel implements ActionListener , Item
 			}
 		}
 
-		if ( e.getSource().equals(boutonAddLigne) )
-		{			
-			revalidate();
-			
-			if (  listeSaisieDechet.size() < nbLigne )
-			{
-				
-				
-				LigneSaisieDechet ligne = new LigneSaisieDechet(listeSaisieDechet);
-			
-				listeSaisieDechet.add( ligne );
-				panelDroitCentre.add( ligne );
-
-				labelResultat.setText("Total : " + getResultatListe() + " kg");
-			
-				setVisible(true);
-			}
-			else
-				JOptionPane.showMessageDialog(null, "Impossible d'ajouter plus de " + nbLigne + " lignes.", "Erreur", JOptionPane.ERROR_MESSAGE);	
-		}
+		
+		
 		
 		if ( aUnAlliage()) 	labelType.setText("Type : " + getType() + "    -     Alliage : " + getAlliage());
 		

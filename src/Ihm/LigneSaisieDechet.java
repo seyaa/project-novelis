@@ -19,7 +19,7 @@ public class LigneSaisieDechet extends JPanel implements ActionListener
 	private JLabel textEgal;
 	private JTextField saisiePoids;
 	private JTextField saisieMultiplicateur;
-	private JButton supprimer ;
+	
 	
 	private Chargement chargementCreate;
 	
@@ -27,12 +27,14 @@ public class LigneSaisieDechet extends JPanel implements ActionListener
 	private int position;
 	
 	private int resultat;
-	boolean estSupprime = false;
+	
 	JPanel panelPrincipal;
 	ArrayList<LigneSaisieDechet> liste;
 	
 	public LigneSaisieDechet (ArrayList<LigneSaisieDechet> listeSaisieDechet)
 	{
+		
+		
 		position = numeroLigne;
 		numeroLigne++;
 		this.liste = listeSaisieDechet;
@@ -43,9 +45,9 @@ public class LigneSaisieDechet extends JPanel implements ActionListener
 		saisiePoids 			= new JTextField(5);
 		textEgal	 			= new JLabel( "=" );
 		resultat				= 0;
-		supprimer 				= new JButton("x");
+	
 		ArrayList<LigneSaisieDechet> liste;
-		panelPrincipal.add ( supprimer );
+		
 		panelPrincipal.add ( saisiePoids );
 		panelPrincipal.add ( textMultiplier );
 		panelPrincipal.add ( saisieMultiplicateur );
@@ -53,7 +55,7 @@ public class LigneSaisieDechet extends JPanel implements ActionListener
 		
 		saisiePoids.addActionListener(this);
 		saisieMultiplicateur.addActionListener(this);
-		supprimer.addActionListener(this);
+	
 		
 		add ( panelPrincipal );
 	}
@@ -108,21 +110,7 @@ public class LigneSaisieDechet extends JPanel implements ActionListener
 			}
 		}
 		
-		if ( e.getSource().equals(supprimer))
-		{
-			panelPrincipal.removeAll();
-			numeroLigne--;
-			System.out.println("Suppression en : " + numeroLigne);
-			System.out.println("Taille : " + liste.size());
-			liste.remove(numeroLigne);
-			//System.out.println ("\n TAILLE: " +liste.size());
-			//System.out.println ("\nNUM LIGNE: " +numeroLigne);
-			//System.out.println ("\nPOSITION : " + position);
-			panelPrincipal.setVisible(false);
-			
-			add ( panelPrincipal );
-			estSupprime = true;
-		}
+		
 		
 		
 		
@@ -135,8 +123,5 @@ public class LigneSaisieDechet extends JPanel implements ActionListener
 		super.revalidate();
 	};
 	
-	public boolean estSupprime()
-	{
-		return estSupprime;
-	}
+	
 }
