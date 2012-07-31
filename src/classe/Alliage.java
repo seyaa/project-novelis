@@ -1,5 +1,6 @@
 package classe;
 
+
 public class Alliage 
 {
 	private int idAlliage;
