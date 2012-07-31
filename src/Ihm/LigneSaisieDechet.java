@@ -29,16 +29,11 @@ public class LigneSaisieDechet extends JPanel implements ActionListener
 	private int resultat;
 	
 	JPanel panelPrincipal;
-	ArrayList<LigneSaisieDechet> liste;
+
 	
-	public LigneSaisieDechet (ArrayList<LigneSaisieDechet> listeSaisieDechet)
+	public LigneSaisieDechet (Chargement chargementCreate)
 	{
-		
-		
-		position = numeroLigne;
-		numeroLigne++;
-		this.liste = listeSaisieDechet;
-		//this.chargementCreate = chargement;
+		this.chargementCreate = chargementCreate;
 		panelPrincipal 			= new JPanel();
 		textMultiplier 			= new JLabel("x");
 		saisieMultiplicateur 	= new JTextField("1", 5);
@@ -46,7 +41,7 @@ public class LigneSaisieDechet extends JPanel implements ActionListener
 		textEgal	 			= new JLabel( "=" );
 		resultat				= 0;
 	
-		ArrayList<LigneSaisieDechet> liste;
+		
 		
 		panelPrincipal.add ( saisiePoids );
 		panelPrincipal.add ( textMultiplier );
@@ -55,7 +50,6 @@ public class LigneSaisieDechet extends JPanel implements ActionListener
 		
 		saisiePoids.addActionListener(this);
 		saisieMultiplicateur.addActionListener(this);
-	
 		
 		add ( panelPrincipal );
 	}
@@ -109,11 +103,7 @@ public class LigneSaisieDechet extends JPanel implements ActionListener
 				setResultat(resultat);
 			}
 		}
-		
-		
-		
-		
-		
+
 		ModuleAjoutDechetV2.majPoids(chargementCreate);
 		
 	}

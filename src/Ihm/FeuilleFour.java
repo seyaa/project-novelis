@@ -51,9 +51,10 @@ public class FeuilleFour extends JFrame implements ActionListener
 		setTitle("Gestion des chargements");
 		setSize(900	, 600);
 		
-//		this.pack();
-//		this.setDefaultLookAndFeelDecorated(true);
-//		this.setExtendedState(this.MAXIMIZED_BOTH);
+		// PLEIN ECRAN
+		//this.pack();
+		//this.setDefaultLookAndFeelDecorated(true);
+		//this.setExtendedState(this.MAXIMIZED_BOTH);
 	
 		setLayout ( new BorderLayout());
 		
@@ -80,16 +81,6 @@ public class FeuilleFour extends JFrame implements ActionListener
 		JButton imprimer 		= new JButton(actionImprimer);			imprimer.setText("");
 		
 		
-		//CREATION ET REMPLISSAGE DE LA BARRE D OUTILS
-		JToolBar barreOutils = new JToolBar();
-		
-		barreOutils.add(nouveau);	barreOutils.addSeparator();
-		barreOutils.add(ouvrir);	barreOutils.add(enregistrer);	barreOutils.add(enregistrerSous);	barreOutils.addSeparator();	barreOutils.add(rechercher);	barreOutils.addSeparator();
-		barreOutils.add(imprimer);	barreOutils.addSeparator();		barreOutils.addSeparator();			barreOutils.addSeparator();
-		barreOutils.addSeparator();	barreOutils.addSeparator();		barreOutils.addSeparator();			barreOutils.addSeparator();	barreOutils.add(quitter);
-		
-		add(barreOutils, "North");
-		
 		//CREATION DE LA BARRE DES MENUS
 		JMenuBar menuBar 		= new JMenuBar();
 		
@@ -112,16 +103,11 @@ public class FeuilleFour extends JFrame implements ActionListener
 		itemAPropos.setIcon	(new ImageIcon("icones/apropos.png"));
 		
 		//ajoute les items au menu Fichier
-		menuFichier.add(itemNouveau);
-		menuFichier.addSeparator();
-		menuFichier.add(itemOuvrir);
-		menuFichier.addSeparator();
-		menuFichier.add(itemEnregistrer);
-		menuFichier.addSeparator();
-		menuFichier.add(itemEnregistrerSous);
-		menuFichier.addSeparator();
-		menuFichier.add(itemImprimer);
-		menuFichier.addSeparator();
+		menuFichier.add(itemNouveau);			menuFichier.addSeparator();
+		menuFichier.add(itemOuvrir);			menuFichier.addSeparator();
+		menuFichier.add(itemEnregistrer);		menuFichier.addSeparator();
+		menuFichier.add(itemEnregistrerSous);	menuFichier.addSeparator();
+		menuFichier.add(itemImprimer);			menuFichier.addSeparator();
 		menuFichier.add(itemQuitter);
 		
 		//ajoute les items au menu Rechercher

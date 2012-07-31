@@ -73,7 +73,7 @@ public class ModuleAjoutDechetV2 extends JPanel implements ActionListener , Item
 	
 	public ModuleAjoutDechetV2( Chargement chargementCreate)
 	{		
-		moduleCodebarre = new ModuleCodeBarre(chargementCreate);
+		//moduleCodebarre = new ModuleCodeBarre(chargementCreate);
 		
 		this.chargementCreate = chargementCreate;
 			
@@ -89,7 +89,7 @@ public class ModuleAjoutDechetV2 extends JPanel implements ActionListener , Item
 		panelAjout			= new JPanel();
 		panelCodebarre 		= new JPanel();
 		
-		panelCodebarre.add ( moduleCodebarre );
+		//panelCodebarre.add ( moduleCodebarre );
 		listeSaisieDechet 	= new ArrayList<LigneSaisieDechet>();
 		
 		boutonValider 		= new JButton("Valider");
@@ -138,7 +138,7 @@ public class ModuleAjoutDechetV2 extends JPanel implements ActionListener , Item
 	    
 		for ( int i = 0 ; i < 5 ; i++ ) 
 		{
-			LigneSaisieDechet ligne = new LigneSaisieDechet(listeSaisieDechet);
+			LigneSaisieDechet ligne = new LigneSaisieDechet(chargementCreate);
 			listeSaisieDechet.add( ligne );
 			panelDroitCentre.add( ligne );
 		}
