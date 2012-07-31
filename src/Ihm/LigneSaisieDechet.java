@@ -22,12 +22,16 @@ public class LigneSaisieDechet extends JPanel implements ActionListener
 	
 	private Chargement chargementCreate;
 	
+	private static int nbLigne = 0;
+	
 	private int resultat;
 	boolean estSupprime = false;
 	JPanel panelPrincipal;
 	
 	public LigneSaisieDechet (Chargement chargement)
 	{
+		nbLigne++;
+		System.out.println ( nbLigne );
 		this.chargementCreate = chargement;
 		panelPrincipal 			= new JPanel();
 		textMultiplier 			= new JLabel("x");
@@ -102,6 +106,7 @@ public class LigneSaisieDechet extends JPanel implements ActionListener
 		
 		if ( e.getSource().equals(supprimer))
 		{
+			nbLigne--;
 			System.out.println ("del");
 			panelPrincipal.setVisible(false);
 			add ( panelPrincipal );
