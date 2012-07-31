@@ -129,7 +129,7 @@ public class ModuleAjoutDechetV2 extends JPanel implements ActionListener , Item
 		
 		// PARTIE DROITE
 		
-		LigneSaisieDechet ligne = new LigneSaisieDechet(chargementCreate);
+		LigneSaisieDechet ligne = new LigneSaisieDechet(listeSaisieDechet);
 		listeSaisieDechet.add( ligne );
 
 		panelDroit.setLayout		( new BorderLayout()	);
@@ -221,11 +221,11 @@ public class ModuleAjoutDechetV2 extends JPanel implements ActionListener , Item
 		{			
 			revalidate();
 			
-			if (  cptLigne < nbLigne )
+			if (  listeSaisieDechet.size() < nbLigne )
 			{
-				cptLigne++;
 				
-				LigneSaisieDechet ligne = new LigneSaisieDechet(chargementCreate);
+				
+				LigneSaisieDechet ligne = new LigneSaisieDechet(listeSaisieDechet);
 			
 				listeSaisieDechet.add( ligne );
 				panelDroitCentre.add( ligne );
